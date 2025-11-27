@@ -1,0 +1,41 @@
+:root {
+		--font-family-sans: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+		--color-text: #333;
+		--color-background: #fff;
+		--color-primary: #000; /* Negro para elementos clave */
+		--color-secondary: #666; /* Gris oscuro para texto secundario */
+		--sidebar-width: 280px; /* Ancho de tu sidebar */
+	}
+
+	html {
+		font-family: var(--font-family-sans);
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		color: var(--color-text);
+		background-color: var(--color-background);
+		min-height: 100vh;
+		display: flex; /* Importante para el layout con sidebar */
+		flex-direction: column; /* Para que el footer se quede abajo si lo añades */
+	}
+
+	/* Estilos generales para enlaces */
+	a {
+		color: var(--color-primary);
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+
+	/* Resets básicos */
+	h1, h2, h3, h4, h5, h6, p, ul, ol {
+		margin: 0;
+		padding: 0;
+	}
+	ul {
+		list-style: none;
+	}

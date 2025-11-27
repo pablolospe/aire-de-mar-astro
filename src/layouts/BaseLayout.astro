@@ -1,0 +1,27 @@
+---
+// src/layouts/BaseLayout.astro
+import '../styles/global.css'; // Un archivo CSS global para estilos base
+
+interface Props {
+	title: string;
+	description?: string; // Opcional para SEO
+}
+
+const { title, description = 'Portfolio de arquitectura Aire de Mar Studio' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
+	</head>
+	<body>
+		<!-- Aquí es donde se insertará el contenido de las páginas que usen este layout -->
+		<slot />
+	</body>
+</html>

@@ -1,0 +1,107 @@
+/* src/styles/sidebar.css */
+
+.sidebar {
+    width: var(--sidebar-width); /* Definido en BaseLayout.astro */
+    min-width: var(--sidebar-width); /* Para asegurar que no se achique */
+    background-color: var(--color-primary); /* Fondo oscuro para el sidebar */
+    color: var(--color-background); /* Texto claro */
+    padding: 2rem;
+    box-sizing: border-box; /* Incluye padding en el width */
+    display: flex;
+    flex-direction: column;
+    position: sticky; /* Para que se mantenga visible al hacer scroll */
+    top: 0; /* Lo fija en la parte superior */
+    height: 100vh; /* Ocupa toda la altura de la vista */
+    align-items: flex-start; /* Alinear elementos a la izquierda */
+}
+
+.sidebar-header {
+    margin-bottom: 3rem; /* Espacio debajo del logo/título */
+}
+
+.sidebar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-background); /* Asegura que el logo sea blanco */
+}
+
+.sidebar .boutique-studio {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+    margin-top: 0.2rem;
+}
+
+.sidebar .search-icon {
+    font-size: 1.2rem;
+    margin-top: auto; /* Empuja el icono de búsqueda hacia abajo */
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar .search-icon:hover {
+    opacity: 1;
+}
+
+.sidebar .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Para que los enlaces ocupen el ancho del sidebar */
+}
+
+.sidebar .nav-links li {
+    margin-bottom: 1rem;
+}
+
+.sidebar .nav-links a {
+    color: var(--color-background); /* Texto de enlace blanco */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 0; /* Padding para hacer el área de click más grande */
+    display: block; /* Para que el padding funcione correctamente */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar .nav-links a:hover {
+    color: var(--color-secondary); /* Un gris más claro al pasar el ratón */
+    transform: translateX(5px); /* Pequeño efecto de deslizamiento */
+}
+
+/* Estilos para el estado activo del enlace (ej. la página actual) */
+.sidebar .nav-links a.active {
+    font-weight: bold;
+    color: var(--color-secondary); /* O un color de acento diferente */
+}
+
+/* Media Queries para responsividad (opcional pero recomendado) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+        height: auto; /* Altura automática en móvil */
+        position: relative; /* Quita el sticky en móvil */
+        flex-direction: row; /* Elementos en fila en móvil */
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .sidebar-header {
+        margin-bottom: 0;
+    }
+    .sidebar .nav-links {
+        display: none; /* O puedes hacer un menú hamburguesa */
+    }
+    .sidebar .search-icon {
+        margin-top: 0;
+    }
+    .main-content-wrapper .projects-grid-container {
+        margin-left: 0; /* Quita el margen en móvil */
+    }
+}

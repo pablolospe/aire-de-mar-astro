@@ -1,0 +1,35 @@
+---
+// src/pages/proyectos.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SidebarNav from '../components/SidebarNav.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+---
+
+<BaseLayout title="Aire de Mar - Proyectos">
+    <div class="main-content-wrapper">
+        <SidebarNav />
+        <main class="projects-grid-container">
+            {projects.map(project => (
+                <ProjectCard project={project} />
+            ))}
+        </main>
+    </div>
+</BaseLayout>
+
+<style>
+    .main-content-wrapper {
+        display: flex;
+        min-height: 100vh;
+    }
+    .projects-grid-container {
+        flex-grow: 1; /* Ocupa el espacio restante */
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ejemplo de grid responsivo */
+        gap: 2rem;
+        padding: 2rem;
+        margin-left: var(--sidebar-width, 250px); /* Ajustar según el ancho de tu sidebar */
+    }
+</style>
