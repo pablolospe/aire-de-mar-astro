@@ -13,6 +13,7 @@ const { project } = Astro.props;
         width={400}
         loading="eager"
     />
+    
     <div class="project-info">
         <h3 transition:name={`portada${project.data.title}`}>
             {project.data.title.toUpperCase()}
