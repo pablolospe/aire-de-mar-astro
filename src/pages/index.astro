@@ -1,7 +1,6 @@
 ---
-import img2 from "../assets/renders/CASA_SAL/13.4_SAL_render1.jpg";
-import img1 from "../assets/renders/CASA_FENIX/DESPEGADA_01.jpg";
-import img3 from "../assets/renders/CASA_OHANA/cam08_final.jpg";
+import { Image } from "astro:assets";
+import positivoAireDeMarBlanco from '../assets/positivo_Aire-de-Mar_blanco.png';
 ---
 
 <!doctype html>
@@ -15,60 +14,50 @@ import img3 from "../assets/renders/CASA_OHANA/cam08_final.jpg";
             html {
                 margin: 0;
                 padding: 0;
-                overflow: hidden; /* Para que el slider ocupe toda la pantalla */
+                height: 100%; /* Asegura que el html y body ocupen toda la altura */
+                overflow: hidden; /* Evita scrolls no deseados */
                 font-family: sans-serif;
-                background-color: #fff;
-                color: #000;
+                color: #fff; /* Color de texto blanco para contrastar con el gradiente */
             }
-            .slider-container {
-                position: relative;
+            .gradient-background {
+                background: linear-gradient(
+                    to bottom right,
+                    #ffffff 0%,
+                    #001f4c 100%
+                ); /* Cambiado a diagonal de blanco a azul oscuro */
                 width: 100vw;
                 height: 100vh;
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-            }
-            .slide {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-size: cover;
-                background-position: center;
-                opacity: 0;
-                transition: opacity 2s ease-in-out;
-            }
-            .slide.active {
-                opacity: 1;
-            }
-            .overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                /* background-color: rgba(0,0,0,0.3); Oscurece un poco la imagen */
-                display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
+                justify-content: center; /* Centra verticalmente */
+                align-items: center; /* Centra horizontalmente */
                 padding: 2rem;
                 box-sizing: border-box;
-                z-index: 10;
             }
-            .logo {
+
+            .logo-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* Eliminado margin-top para un centrado perfecto */
+            }
+
+            .main-logo {
+                /* Si tu logo es una imagen, descomenta y ajusta */
+                /* width: 150px; 
+                height: auto; */
                 font-size: 1.8rem;
                 font-weight: bold;
                 letter-spacing: 0.1em;
                 text-transform: uppercase;
-                margin-top: 1rem;
+                margin-bottom: 0.5rem; /* Espacio entre el título y el subtítulo */
             }
             .boutique-studio {
                 font-size: 0.8rem;
                 letter-spacing: 0.2em;
                 opacity: 0.7;
-                margin-top: -0.5rem;
             }
+
             .enter-button {
                 background-color: transparent;
                 border: 2px solid white;
@@ -87,12 +76,10 @@ import img3 from "../assets/renders/CASA_OHANA/cam08_final.jpg";
                 color: black;
             }
             .scroll-arrow {
-                position: absolute;
-                bottom: 2rem;
                 font-size: 2rem;
                 animation: bounce 2s infinite;
                 cursor: pointer;
-                z-index: 10;
+                margin-bottom: 1rem; /* Margen inferior para la flecha */
             }
             @keyframes bounce {
                 0%,
@@ -112,49 +99,18 @@ import img3 from "../assets/renders/CASA_OHANA/cam08_final.jpg";
         </style>
     </head>
     <body>
-        <div class="slider-container">
-            <div
-                class="slide active"
-                style={`background-image: url(${img1.src});`}
-            >
-            </div>
-            <div class="slide" style={`background-image: url(${img2.src});`}>
-            </div>
-            <div class="slide" style={`background-image: url(${img3.src});`}>
+        <div class="gradient-background">
+            <div class="logo-container">
+                <!-- Aquí puedes poner tu logo o mantener el texto "AIRE DE MAR" -->
+                <!-- Si es una imagen: <img src={myLogo.src} alt="Aire de Mar Logo" class="main-logo" /> -->
+                <!-- <div class="main-logo">AIRE DE MAR</div> -->
+                <!-- <div class="boutique-studio">BOUTIQUE STUDIO</div> -->
+                <Image 
+                
+                src={positivoAireDeMarBlanco} alt="Aire de Mar Logo" width={500} height={500} />
             </div>
 
-            <div class="overlay">
-                <div>
-                    <div class="logo">AIRE DE MAR</div>
-                    <div class="boutique-studio">BOUTIQUE STUDIO</div>
-                </div>
-                <a href="/proyectos" class="enter-button">ENTRAR →</a>
-                <div class="scroll-arrow">↓</div>
-            </div>
+            <a href="/home" class="enter-button">ENTRAR →</a>
         </div>
-
-        <script>
-            const slides = document.querySelectorAll(".slide");
-            let currentSlide = 0;
-
-            function showSlide(index: number) {
-                slides.forEach((slide, i) => {
-                    slide.classList.remove("active");
-                    if (i === index) {
-                        slide.classList.add("active");
-                    }
-                });
-            }
-
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            setInterval(nextSlide, 5000); // Cambia de slide cada 5 segundos
-
-            // Opcional: para el click de la flecha si quieres que también avance
-            // document.querySelector('.scroll-arrow').addEventListener('click', nextSlide);
-        </script>
     </body>
 </html>
