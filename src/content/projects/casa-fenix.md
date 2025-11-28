@@ -7,3 +7,4 @@ image: "/renders/CASA_FENIX/DESPEGADA_01.jpg"
 ---
 
 Descripción del proyecto.
+![DESPEGADA_01](/renders/CASA_FENIX/DESPEGADA_01.jpg)

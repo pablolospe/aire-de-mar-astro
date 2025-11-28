@@ -1,5 +1,8 @@
 ---
-// src/layouts/BaseLayout.astro
+// import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
+
+
 import '../styles/global.css'; // Un archivo CSS global para estilos base
 
 interface Props {
@@ -19,6 +22,7 @@ const { title, description = 'Portfolio de arquitectura Aire de Mar Studio' } = 
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		{description && <meta name="description" content={description} />}
+		<ClientRouter />
 	</head>
 	<body>
 		<!-- Aquí es donde se insertará el contenido de las páginas que usen este layout -->

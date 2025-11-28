@@ -1,9 +1,19 @@
 ---
-// src/components/ProjectCard.astro
+import { Image } from "astro:assets";
+
 const { project } = Astro.props;
 ---
+
 <a href={`/proyectos/${project.slug}`} class="project-card">
-    <img src={project.data.image} alt={project.data.title} />
+    <Image
+        src={project.data.image}
+        alt={project.data.title}
+        transition:name={`portada${project.data.image}`}
+        class=""
+        height={800}
+        width={400}
+        loading="eager"
+    />
     <div class="project-info">
         <h3>{project.data.title.toUpperCase()}</h3>
         <p class="project-location">{project.data.location}</p>
