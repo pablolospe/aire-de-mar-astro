@@ -20,7 +20,9 @@ const { Content } = await project.render();
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
             Volver
         </button>
-        <h1>{project.data.title.toUpperCase()}</h1>
+        <h1
+            transition:name={`portada${project.data.title}`}
+        >{project.data.title.toUpperCase()}</h1>
         <p class="project-location">{project.data.location}</p>
         <p class="project-year">{project.data.year}</p>
 

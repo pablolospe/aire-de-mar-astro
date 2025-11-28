@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-
 const { project } = Astro.props;
 ---
 
@@ -15,7 +14,9 @@ const { project } = Astro.props;
         loading="eager"
     />
     <div class="project-info">
-        <h3>{project.data.title.toUpperCase()}</h3>
+        <h3 transition:name={`portada${project.data.title}`}>
+            {project.data.title.toUpperCase()}
+        </h3>
         <p class="project-location">{project.data.location}</p>
         <p class="project-year">{project.data.year}</p>
     </div>
