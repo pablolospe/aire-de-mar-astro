@@ -1,16 +1,16 @@
 ---
 // src/pages/proyectos.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SidebarNav from '../components/SidebarNav.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
+import Navbar from '../components/navbar.astro';
 
 const projects = await getCollection('projects');
 ---
 
 <BaseLayout title="Aire de Mar - Proyectos">
     <div class="main-content-wrapper">
-        <SidebarNav />
+        <Navbar />
         <main class="projects-grid-container">
             {projects.map(project => (
                 <ProjectCard project={project} />
