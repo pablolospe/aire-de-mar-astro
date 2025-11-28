@@ -1,15 +1,17 @@
 ---
 // src/components/Navbar.astro
+import { Image } from 'astro:assets';
 import '../styles/navbar.css'; // Asegúrate de crear este archivo CSS
+import positivoAireDeMarBlue from '../assets/positivo_Aire-de-Mar_deep-blue.png';
 ---
 <nav class="navbar">
     <div class="navbar-left">
         <a href="/" class="logo-container">
-            <svg class="logo-wave" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 10 C 25 0, 75 20, 100 10" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            <div class="logo-text">AIRE <br/> DE MAR</div>
-            <div class="boutique-studio">boutique studio</div>
+            <Image src={positivoAireDeMarBlue} alt="Logo" 
+            alt="Aire de Mar Logo"
+                    width={150}
+                    height={150}
+            />
         </a>
     </div>
     <div class="navbar-right">
