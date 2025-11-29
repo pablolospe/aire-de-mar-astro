@@ -20,6 +20,8 @@
 		min-height: 100vh;
 		display: flex; /* Importante para el layout con sidebar */
 		flex-direction: column; /* Para que el footer se quede abajo si lo añades */
+		padding-bottom: 80px; /* Evita que la navbar inferior solape el contenido */
+		box-sizing: border-box; /* Asegura que el padding se incluya en el alto total */
 	}
 
 	/* Estilos generales para enlaces */

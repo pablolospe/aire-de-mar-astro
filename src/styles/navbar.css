@@ -1,17 +1,18 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 3rem; /* Ajusta el padding según la imagen */
+    align-items: flex-end; /* Alinea los items (logo y links) hacia abajo */
+    padding: 1rem 3rem; /* Ajusta el padding */
     background-color: #ffffff; /* Fondo blanco */
     color: #000000; /* Texto negro */
-    font-family: Arial, Helvetica, sans-serif; /* Similar a la fuente de la imagen */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sutil sombra si quieres un efecto "flotante" */
-    position: fixed; /* Fija la navbar en la parte superior */
-    width: 100vw;
-    top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05); /* Sombra en la parte superior */
+    position: fixed;
+    width: 100%; /* Usa 100% en lugar de 100vw para evitar overflow */
+    top: 0; /* Fija la navbar en la parte inferior */
     left: 0;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    z-index: 1000;
+    box-sizing: border-box; /* Para que el padding no afecte el ancho total */
 }
 
 .navbar-left {
@@ -22,30 +23,30 @@
 .logo-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinea el texto a la izquierda */
-    text-decoration: none; /* Quita el subrayado del enlace del logo */
-    color: inherit; /* Hereda el color del texto */
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo-wave {
-    width: 30px; /* Ajusta el tamaño de la onda */
+    width: 30px;
     height: auto;
-    color: #000000; /* Color de la onda */
-    margin-bottom: -5px; /* Ajusta el espacio entre la onda y el texto */
+    color: #000000;
+    margin-bottom: -5px;
 }
 
 .logo-text {
-    font-size: 1.2rem; /* Tamaño del texto "AIRE DE MAR" */
+    font-size: 1.2rem;
     font-weight: bold;
-    line-height: 1; /* Ajusta el espaciado entre líneas si hay un <br> */
+    line-height: 1;
     text-transform: uppercase;
 }
 
 .boutique-studio {
-    font-size: 0.7rem; /* Tamaño del texto "boutique studio" */
-    letter-spacing: 0.1em; /* Espaciado entre letras */
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
     opacity: 0.7;
-    margin-top: 2px; /* Pequeño espacio superior */
+    margin-top: 2px;
 }
 
 .navbar-right {
@@ -58,11 +59,11 @@
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 2rem; /* Espacio entre los elementos principales del menú */
+    gap: 2rem;
 }
 
 .nav-main-links li {
-    position: relative; /* Para el submenú */
+    position: relative;
 }
 
 .nav-main-links a {
@@ -75,7 +76,7 @@
 }
 
 .nav-main-links a:hover {
-    color: #007bff; /* Un color de hover, puedes ajustarlo */
+    color: #007bff;
 }
 
 /* Estilos para el submenú de PROYECTOS */
@@ -84,19 +85,19 @@
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 100%; /* Aparece justo debajo del elemento padre */
-    left: 50%; /* Centra el submenú debajo del padre */
-    transform: translateX(-50%); /* Ajusta el centrado */
+    bottom: 100%; /* El submenú se abre hacia arriba */
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1); /* Sombra hacia arriba */
     border-radius: 4px;
     min-width: 120px;
-    opacity: 0; /* Oculto por defecto */
-    visibility: hidden; /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 10;
-    text-align: center; /* Centra el texto de los submenús */
-    white-space: nowrap; /* Evita que el texto se rompa */
+    text-align: center;
+    white-space: nowrap;
     padding: 0.5rem 0;
 }
 
@@ -106,9 +107,9 @@
 }
 
 .submenu li a {
-    display: block; /* Para que cada enlace ocupe su propia línea */
+    display: block;
     padding: 0.5rem 1rem;
-    font-weight: normal; /* Los elementos del submenú no son tan bold */
+    font-weight: normal;
     font-size: 0.85rem;
 }
 

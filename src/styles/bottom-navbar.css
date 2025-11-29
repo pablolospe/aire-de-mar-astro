@@ -1,0 +1,108 @@
+/* src/styles/bottom-navbar.css */
+
+:root {
+    --navbar-height: 80px; /* Altura de la barra de navegación */
+    --navbar-padding: 1rem 2rem;
+    --background-color: #f8f9fa; /* Un fondo claro para la barra */
+    --text-color: #343a40; /* Texto oscuro */
+    --link-hover-color: #007bff; /* Color de realce para enlaces */
+    --border-color: #e9ecef; /* Borde superior */
+}
+
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--navbar-padding);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid var(--border-color);
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.bottom-navbar .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.bottom-navbar .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.bottom-navbar .boutique-studio {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    margin-left: 0.5rem;
+    opacity: 0.8;
+}
+
+.bottom-navbar .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: flex-end; /* Alinea los enlaces hacia abajo */
+}
+
+.bottom-navbar .nav-links li {
+    margin-left: 2rem;
+    position: relative; /* Para el posicionamiento del dropdown */
+}
+
+.bottom-navbar .nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+    padding-bottom: 0.5rem; /* Espacio para que el enlace se vea alineado abajo */
+}
+
+.bottom-navbar .nav-links a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Estilo para el menú desplegable (dropdown) */
+.dropdown-menu {
+    position: absolute;
+    bottom: 100%; /* Se posiciona justo encima del enlace */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    margin: 0;
+    list-style: none;
+    min-width: 150px; /* Ancho mínimo del dropdown */
+    display: none; /* Oculto por defecto */
+    z-index: 1001;
+}
+
+/* Mostrar el dropdown cuando se hace hover en el elemento padre 'li.dropdown' */
+.bottom-navbar .nav-links li.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    white-space: nowrap; /* Evita que el texto del enlace se rompa */
+}

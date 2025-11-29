@@ -1,0 +1,22 @@
+---
+// src/components/BottomNav.astro
+import '../styles/bottom-navbar.css';
+---
+<nav class="bottom-navbar">
+    <a href="/" class="logo-container">
+        <div class="logo">AIRE DE MAR</div>
+        <div class="boutique-studio">BOUTIQUE STUDIO</div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="/estudio">ESTUDIO</a></li>
+        <li class="dropdown">
+            <a href="/proyectos">PROYECTOS</a>
+            <ul class="dropdown-menu">
+                <li><a href="/proyectos/categoria-1">Categoría 1</a></li>
+                <li><a href="/proyectos/categoria-2">Categoría 2</a></li>
+                <li><a href="/proyectos/categoria-3">Categoría 3</a></li>
+            </ul>
+        </li>
+        <li><a href="/contacto">CONTACTO</a></li>
+    </ul>
+</nav>
